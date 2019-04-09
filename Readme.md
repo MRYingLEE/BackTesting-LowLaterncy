@@ -5,6 +5,34 @@ In order to find an optimized parameters, we will test many combinations of  (sh
 ![1 Long Short](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/1Name.png "1 Long Short")
 ![All sets](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/Names.png "All sets")
 
+## In practice, can I use the result to start trading? 
+ 
+1. Short may be not allowed by some trading platform. And margin cost has to be considered.
+2. There is no trading cost included. Trading costs not only include commissions, fees, and taxes, but also price spread and market impact. In the test, the best set by average trades PL is (6,27, 0.5%), whose average trades PL is only 1.17%%. If the total trading cost is 1%%, nearly all profit will be swallowed.
+ 
+3. Technical analysis believes the history repeats. But the history doesn’t repeat simply. The optimized set of parameters could change from time to time. Even when we change the test period, the results could change too.
+
+4. Also, when people find some certain rules to make profit, the trading will correct the market, especially when more and more people find the rules. The trading opportunity will fade away.
+
+4. We need to find robust strategy rules. The cross down/up strategy is too simple. More indicators, signals should be taken into consideration. Also, complicated signal capture method, such as machine learning, deep learning and reinforcement learning may help.
+
+So I suggest not to use the results into trading. Instead the results can be a base for the further research.
+
+## Is there any other trading idea how we can generate P&L by using moving average cross signal? 
+By using moving average cross signal, we may try some new ideas:
+1.	Regarding indicators
+a.	We may use different time series. So far the time series are in time domain with an equal distance. In the book, Advances in financial machine learning / Marcos López de Prado, the author argued to use volume to make time series, in other words, time series with variable distance.
+b.	We may use different moving average method, such as Cumulative moving average, Weighted moving average, Exponential moving average. Especially, volume data should play an important role. So VWAP (Volume Weighted Average Price) is a good candidate.
+c.	Other technical analysis indicators could be used together too.
+d.	Other macro indicators, such as interest rate, jobless rate, gold price, primary stock indices can be used together also.
+2.	Regarding signals
+a.	We may use volume as an additional signal factor. For example, when cross over, the volume should be bigger than before.
+b.	We may use signal combinations.
+3.	Regarding strategy
+a.	We may use profit taking to protect our profit.
+b.	We may put different size of orders for different signal levels.
+c.	We may use trend checking to avoid directional mistake.
+
 # Why Low Latency in Python
 In serial mode, the code takes about 25 minutes to run on my home PC, which has a 12-core CPU and a GTX 1060 GPU.
 The efficiency is too slow to accept, so I have to use low latency method.
