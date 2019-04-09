@@ -2,7 +2,8 @@
 This is to backtest a trading strategy based on simple moving average (MA) cross signal. Strategy will buy 1 share when short moving average line (such as 5) crosses above long moving average line (such as 25), while sell 1 share when short MA crosses below long MA. Also, we set a stop loss rate (such as 2%). If the last holding lost at the stop loss rate, we will close it immediately.
 
 In order to find an optimized parameters, we will test many combinations of  (short MA periods, long MA periods, stop loss level). 
-
+![1 Long Short](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/1Name.png "1 Long Short")
+![All sets](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/Names.png "All sets")
 
 # Why Low Latency in Python
 In serial mode, the code takes about 25 minutes to run on my home PC, which has a 12-core CPU and a GTX 1060 GPU.
