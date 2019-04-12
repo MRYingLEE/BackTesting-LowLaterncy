@@ -5,6 +5,9 @@ In order to find an optimized parameters, we will test many combinations of  (sh
 ![1 Long Short](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/1Name.png "1 Long Short")
 ![All sets](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/Names.png "All sets")
 
+![Heatmap](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/heatmap1.png "Heatmap of Sharpe Ratio")
+![Trade PL](https://github.com/MRYingLEE/BackTesting-LowLaterncy/blob/master/tradepl.png "Trade PL")
+
 ## In practice, can I use the result to start trading? 
  
 1. Short may be not allowed by some trading platform. And margin cost has to be considered.
