@@ -69,7 +69,7 @@ Due to the backtesting is path depent, it's hard to use parallelism to deal with
 
 Even so, I tried to use GPU programming. I chose cuDF (https://github.com/rapidsai/cudf) as the GPU library for it was claimed as "almost a drop-in, API-compatible, GPU-accelerated replacement for pandas".
 
-1. Due to cuDF only works for Linux, I setup an python environment with GPU support, which took me nearly 1 day due to a few technical reasons and version compatibility.
+1. Due to cuDF only works for Linux, I setup a python environment with GPU support, which took me nearly 1 day due to a few technical reasons and version compatibility.
 
 2. There are a lot of important functions, such as CUMMAX/ CUMSUM, were missed in cuDF. It took me a lot of time to rewrite my existing Pandas code.
 
@@ -77,5 +77,5 @@ Even so, I tried to use GPU programming. I chose cuDF (https://github.com/rapids
 
 4. After hours of struggling, the core code started to run successfully, but the performance was very bad, times slower than my Pandas version. I guess for small dataset, the overhead of cuDF is very high.
 
-So, just I expected GPU is not good for backtesting. Of course, just as I tried before, GPU does much good to deep learning, which is calculation intensive.
+So, just as I expected GPU is not good for backtesting. Of course, just as I tried before, GPU does much good to deep learning, which is calculation intensive.
 
