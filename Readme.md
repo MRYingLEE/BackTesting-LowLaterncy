@@ -54,7 +54,7 @@ Its conclusions are as the following:
   
 For backtesting is calculation intensive, so after a multithreading testing, I switched to multiprocessing.  
 
-# Why not in Jupyter Notebook
+# Why not in Jupyter Notebook for Multithreading
 
 The code in serial mode is in a Jupyter Notebook. But on Windows, Jupyter Notebook doesn't support multiprocessing.
 
@@ -64,7 +64,18 @@ For me, when I switched to multiprocessing mode, I use python code directly to m
 
 So the core code in multiprocessing is nearly the same as that in serial mode.
 
-# Why not GPU
+# Why not GPU? Failed
+Due to the backtesting is path depent, it's hard to use parallelism to deal with 1 backtesting internally. At the same time, it's natual to use multiprocessing to deal with many backtestings.
 
-It's a good question. I will try it later.
-But due to the backtesting is path depent, it's hard to use parallelism to deal with 1 backtesting internally. At the same time, it's natual to use multiprocessing to deal with many backtestings.
+Even so, I tried to use GPU programming. I chose cuDF (https://github.com/rapidsai/cudf) as the GPU library for it was claimed as "almost a drop-in, API-compatible, GPU-accelerated replacement for pandas".
+
+1. Due to cuDF only works for Linux, I setup an python environment with GPU support, which took me nearly 1 day due to a few technical reasons and version compatibility.
+
+2. There are a lot of important functions, such as CUMMAX/ CUMSUM, were missed in cuDF. It took me a lot of time to rewrite my existing Pandas code.
+
+3. There are a lot of minor but critical differences between cuDF and Pandas. It took me a lot of time to check whether cuDF code worked as I expected.
+
+4. After hours of struggling, the core code started to run successfully, but the performance was very bad, times slower than my Pandas version. I guess for small dataset, the overhead of cuDF is very high.
+
+So, just I expected GPU is not good for backtesting. Of course, just as I tried before, GPU does much good to deep learning, which is calculation intensive.
+
