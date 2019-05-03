@@ -37,24 +37,29 @@ b.	We may put different size of orders for different signal levels.
 c.	We may use trend checking to avoid directional mistake.
 
 # Why Low Latency in Python
-In serial mode, the code takes about 25 minutes to run on my home PC, which has a 12-core CPU and a GTX 1060 GPU.
+In serial mode, the code takes about 6 minutes to run on my home PC, which has a 12-core CPU and a GTX 1060 GPU.
 The efficiency is too slow to accept, so I have to use low latency method.
 
-The effect is obvious. The running time has been shinked to 4 minutes. The speed is nearly 6X times as serial mode.
+The effect is obvious. The running time has been shinked to 2 minutes. The speed is nearly 3X times as serial mode.
 
-# Multithreading vs Multiprocessing
+## Multithreading vs Multiprocessing
 There is a good article to compare multithreading and multiprocessing of Python,
 https://medium.com/contentsquare-engineering-blog/multithreading-vs-multiprocessing-in-python-ece023ad55a .
 
 Its conclusions are as the following:
+
   There can only be one thread running at any given time in a python process.
+  
   Multiprocessing is parallelism. Multithreading is concurrency.
+  
   Multiprocessing is for increasing speed. Multithreading is for hiding latency.
+  
   Multiprocessing is best for computations. Multithreading is best for IO.
+  
   
 For backtesting is calculation intensive, so after a multithreading testing, I switched to multiprocessing.  
 
-# Why not in Jupyter Notebook for Multithreading
+## Why not in Jupyter Notebook for Multithreading
 
 The code in serial mode is in a Jupyter Notebook. But on Windows, Jupyter Notebook doesn't support multiprocessing.
 
@@ -64,7 +69,7 @@ For me, when I switched to multiprocessing mode, I use python code directly to m
 
 So the core code in multiprocessing is nearly the same as that in serial mode.
 
-# Why not GPU? Failed
+## Why not GPU? Failed
 Due to the backtesting is path depent, it's hard to use parallelism to deal with 1 backtesting internally. At the same time, it's natual to use multiprocessing to deal with many backtestings.
 
 Even so, I tried to use GPU programming. I chose cuDF (https://github.com/rapidsai/cudf) as the GPU library for it was claimed as "almost a drop-in, API-compatible, GPU-accelerated replacement for pandas".
