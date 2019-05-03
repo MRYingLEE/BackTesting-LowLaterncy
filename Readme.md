@@ -21,19 +21,31 @@ In order to find an optimized parameters, we will test many combinations of  (sh
 
 So I suggest not to use the results into trading. Instead the results can be a base for the further research.
 
-## Is there any other trading idea how we can generate P&L by using moving average cross signal? 
+## How to improve by using moving average cross signal? 
 By using moving average cross signal, we may try some new ideas:
+
 1.	Regarding indicators
+
 a.	We may use different time series. So far the time series are in time domain with an equal distance. In the book, Advances in financial machine learning / Marcos López de Prado, the author argued to use volume to make time series, in other words, time series with variable distance.
+
 b.	We may use different moving average method, such as Cumulative moving average, Weighted moving average, Exponential moving average. Especially, volume data should play an important role. So VWAP (Volume Weighted Average Price) is a good candidate.
+
 c.	Other technical analysis indicators could be used together too.
+
 d.	Other macro indicators, such as interest rate, jobless rate, gold price, primary stock indices can be used together also.
+
 2.	Regarding signals
+
 a.	We may use volume as an additional signal factor. For example, when cross over, the volume should be bigger than before.
+
 b.	We may use signal combinations.
+
 3.	Regarding strategy
+
 a.	We may use profit taking to protect our profit.
+
 b.	We may put different size of orders for different signal levels.
+
 c.	We may use trend checking to avoid directional mistake.
 
 # Why Low Latency in Python
